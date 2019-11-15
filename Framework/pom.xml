@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.8</version>
+			<version>6.9.10</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -42,37 +42,60 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.17</version>
 		</dependency>
+		
+		<plugins>
+		 <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M3</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+      </plugins>
 
 	</dependencies>
 
-	<build>
+<!-- <plugins> 
+    
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M3</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>XMLFilestestng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+          <systemPropertyVariables>
+            <executename>$chrome</executename>
+          </systemPropertyVariables>
+        </configuration>
+      </plugin>
+    
+</plugins>
+
+-->
 
 
-		<plugins>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M3</version>
-				<configuration>
-					<suiteXmlFiles>
-						<suiteXmlFile>XMLFiles/${xmlFiles}</suiteXmlFile>
-					</suiteXmlFiles>
-
-
-					<systemPropertyVariables>
-
-						<executionBrowser>{$browser}</executionBrowser>
-						<appUrl>{$urlToBeTested}</appUrl>
 
 
 
-					</systemPropertyVariables>
 
-				</configuration>
-			</plugin>
-		</plugins>
 
-	</build>
+
+
+
+
+
+
+
+
+
+	
+
+
+
 
 </project>
